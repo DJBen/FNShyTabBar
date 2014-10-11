@@ -11,7 +11,7 @@ Simple and sound.
 
 1. In storyboard, go to your `UITabBarController` and change the Tab Bar's class into `FNShyTabBar`.
 2. In your view controller's `-viewDidLoad:`, insert the line as followed and you are ready to go!
-    [self.tabBarController.shyTabBar setTrackingView:<#Your view used to track fingers, can be tableView, scrollView, etc#>];
+        [self.tabBarController.shyTabBar setTrackingView:<#Your view used to track fingers, can be tableView, scrollView, etc#>];
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
