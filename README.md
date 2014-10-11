@@ -7,9 +7,16 @@
 
 ## Usage
 
+Simple and sound.
+
+1. In storyboard, go to your `UITabBarController` and change the Tab Bar's class into `FNShyTabBar`.
+2. In your view controller's `-viewDidLoad:`, insert the line as followed and you are ready to go!
+        `[self.tabBarController.shyTabBar setTrackingView:<#Your view used to track fingers, can be tableView, scrollView, etc#>];`
+
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+iOS 7.1
 
 ## Installation
 
@@ -24,5 +31,5 @@ DJBen, lsh32768@gmail.com
 
 ## License
 
-FNShyTabBar is available under the MIT license. See the LICENSE file for more info.
+[DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE](http://www.wtfpl.net)
 
