@@ -1,0 +1,11 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'FNShyTabBar', :exclusive => true do
+  pod "FNShyTabBar", :path => "../"
+end
+
+target 'Tests', :exclusive => true do
+  pod "FNShyTabBar", :path => "../"
+
+  
+end
