@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/FNShyTabBar.svg?style=flat)](http://cocoadocs.org/docsets/FNShyTabBar)
 [![Platform](https://img.shields.io/cocoapods/p/FNShyTabBar.svg?style=flat)](http://cocoadocs.org/docsets/FNShyTabBar)
 
+![Example GIF](https://raw.githubusercontent.com/DJBen/FNShyTabBar/master/Example/FNShyTabBarDemo.gif)
+
 ## Usage
 
 Simple and sound.
