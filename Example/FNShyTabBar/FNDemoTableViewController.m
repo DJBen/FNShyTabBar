@@ -31,6 +31,8 @@
     UIColor *baseColor;
 }
 
+- (void)toggleHidden:(id)sender;
+
 @end
 
 @implementation FNDemoTableViewController
@@ -38,6 +40,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     baseColor = [UIColor colorWithRed:170 / 255.0 green:57 / 255.0 blue:57 / 255.0 alpha:1];
+
+	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Hide" style:UIBarButtonItemStylePlain target:self action:@selector(toggleHidden:)];
 }
 
 - (void)viewDidLoad {
@@ -48,6 +52,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Action
+- (void)toggleHidden:(id)sender {
+	
+	BOOL isHidden = self.tabBarController.shyTabBar.state == FNShyTabBarHidden;
+	[self.tabBarController.shyTabBar setHidden:!isHidden animated:YES];
 }
 
 #pragma mark - Table view data source
