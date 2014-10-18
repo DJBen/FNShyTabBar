@@ -18,7 +18,6 @@
 @property (nonatomic, strong) UITapGestureRecognizer *tapRecognizer;
 @property (nonatomic, weak) UIView *trackingView;
 
-
 @end
 
 @implementation FNShyTabBar
@@ -57,25 +56,25 @@
 }
 
 - (void)setOffset:(CGFloat)offset {
-    offset = -offset;
-    previousOffset = currentOffset;
-    currentOffset = offset;
-    CGFloat difference = currentOffset - previousOffset;
-    if (currentOffset >= -FNShyTabBarPanThreshold && currentOffset < FNShyTabBarPanThreshold) return;
-    for (UIView *view in self.subviews) {
-        view.frame = CGRectMake(view.frame.origin.x,
-                                MAX(0, MIN(view.frame.origin.y + difference, self.frame.size.height)),
-                                view.frame.size.width,
-                                view.frame.size.height);
-        tabBarElementsYOffset = view.frame.origin.y;
-    }
-    if (tabBarElementsYOffset >= self.frame.size.height) {
-        _state = FNShyTabBarHidden;
-    } else if (tabBarElementsYOffset <= 0) {
-        _state = FNShyTabBarShowing;
-    } else {
-        _state = FNShyTabBarTransitioning;
-    }
+	offset = -offset;
+	previousOffset = currentOffset;
+	currentOffset = offset;
+	CGFloat difference = currentOffset - previousOffset;
+	if (currentOffset >= -FNShyTabBarPanThreshold && currentOffset < FNShyTabBarPanThreshold) return;
+	for (UIView *view in self.subviews) {
+		view.frame = CGRectMake(view.frame.origin.x,
+								MAX(0, MIN(view.frame.origin.y + difference, self.frame.size.height)),
+								view.frame.size.width,
+								view.frame.size.height);
+		tabBarElementsYOffset = view.frame.origin.y;
+	}
+	if (tabBarElementsYOffset >= self.frame.size.height) {
+		_state = FNShyTabBarHidden;
+	} else if (tabBarElementsYOffset <= 0) {
+		_state = FNShyTabBarShowing;
+	} else {
+		_state = FNShyTabBarTransitioning;
+	}
 }
 
 - (void)recoilWithVerticalVelocity:(CGFloat)yVelocity {
@@ -94,7 +93,8 @@
             _state = FNShyTabBarShowing;
         }];
     } else {
-        [UIView animateWithDuration:tabBarElementsYOffset / yVelocity * 0.4 animations:^{
+		NSTimeInterval duration = (self.frame.size.height - tabBarElementsYOffset) / yVelocity * 0.4;
+        [UIView animateWithDuration:duration animations:^{
             for (UIView *view in self.subviews) {
                 view.frame = CGRectMake(view.frame.origin.x,
                                         self.frame.size.height,
@@ -125,6 +125,25 @@
     if (!enabled) {
         [self recoilWithVerticalVelocity:300];
     }
+}
+
+#pragma mark - 
+- (void)setHidden:(BOOL)hidden animated:(BOOL)animated {
+	
+	if ((self.state == FNShyTabBarHidden) == hidden) {
+		return;
+	}
+	
+	if (animated) {
+		CGFloat defaultVelocity = 200;
+		CGFloat velocity = hidden ? -defaultVelocity : defaultVelocity;
+		
+		[self recoilWithVerticalVelocity:velocity];
+	}
+	else {
+		CGFloat offset = hidden ? -300 : 300;	// tired to calculate offset diff
+		[self setOffset:offset];
+	}
 }
 
 #pragma mark - Gestures
