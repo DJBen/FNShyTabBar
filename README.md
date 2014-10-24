@@ -18,7 +18,7 @@ Simple and sound.
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-iOS 7.1
+iOS 7.0
 
 ## Installation
 

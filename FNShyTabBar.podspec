@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.author           = { "DJBen" => "lsh32768@gmail.com" }
   s.source           = { :git => "https://github.com/DJBen/FNShyTabBar.git", :tag => s.version.to_s }
 
-  s.platform     = :ios, '7.1'
+  s.platform     = :ios, '7.0'
   s.requires_arc = true
 
   s.source_files = 'Pod/Classes'
