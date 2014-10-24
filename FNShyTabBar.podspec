@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "FNShyTabBar"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "A shy tab bar that hides as you swipe up the content, which allows the screen to display more information."
   s.description      = <<-DESC
                        A shy tab bar that hides as you swipe up the content, giving users more space of the content. Perfect if coupled with `SQTShyNavigationBar`.
