@@ -37,6 +37,13 @@ typedef enum {
  */
 - (void)setTrackingView:(UIView *)trackingView;
 
+/**
+ * Sets whether the shy tab bar is hidden.
+ * @param hidden   Specify YES to hide the shy tab bar or NO to show it.
+ * @param animated Specify YES if you want to animate the change in visibility or NO if you want the shy tab bar to appear immediately.
+ */
+- (void)setHidden:(BOOL)hidden animated:(BOOL)animated;
+
 @end
 
 @interface UITabBarController (FNShyTabBar)
